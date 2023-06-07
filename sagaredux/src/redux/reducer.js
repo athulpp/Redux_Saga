@@ -9,8 +9,10 @@ export const cartData=(data=[],action)=>{
     
     case REMOVE_FROM_CART:
         console.log("REMOVE_FROM_CART condition",action);
-        data.length=data.length?data.length-1:[];
-        return [...data]
+        // data.length=data.length?data.length-1:[];
+       const  remainingItems= data.filter((item)=>item.id!==action.data);
+       console.log(remainingItems,'enthuvade');
+        return [...remainingItems]
 
     case EMPTY_CART:
         console.log("EMPTY_CART condition ",action);
